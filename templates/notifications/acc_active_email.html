@@ -1,0 +1,6 @@
+{% autoescape off %}  
+Привет {{ new_user.username }},
+Пожалуйста, пройдите поссылке, чтобы активировать Ваш аккаунт в нашей системе
+http://{{ domain }}{% url 'clients:activate' uidb64=uid token=token %}
+Если это были не Вы, то проигнорируйте это письмо.
+{% endautoescape %}

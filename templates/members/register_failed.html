@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}Регистрация не завершилась успехом{% endblock title %}
+
+{% block content %}
+    <div class="promotion-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    <h2>Регистрация аккаунта не прошла!</h2>
+                    <p>попробуйте заново пройти регистрацию</p>
+                </div>
+                <div class="col-md-3">
+                    <div class="promo-btn-area">
+                        <a href="{% url 'clients:create' %}" class="site-btn btn-2">Зарегистрироваться</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

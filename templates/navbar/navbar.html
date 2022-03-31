@@ -1,0 +1,21 @@
+{% load static %}
+
+<header class="header-section">
+    <div class="logo">
+        <img src="{% static 'img/love_mini.gif' %}" alt="">
+    </div>
+    <div class="responsive"><i class="fa fa-bars"></i></div>
+    <nav>
+        <ul class="menu-list">
+            <li class="active"><a href="/">Домашняя</a></li>
+            {% if request.user.client.is_active %}
+                <li><a href="{% url 'clients:list' %}">Список участников</a></li>
+            {% endif %}
+            {% if request.user.is_superuser %}
+                <li><a href="{% url 'clients:api_members' %}">РестАпи по участникам</a></li>
+            {% endif %}
+            <li><a href="{% url 'clients:create' %}">Регистрация</a></li>
+            <li><a href="{% url 'clients:login' %}">Вход</a></li>
+        </ul>
+    </nav>
+</header>

@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Регистрация{% endblock title %}
+
+{% block content %}
+    <div class="contact-section spad fix">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-5 col-md-offset-1 contact-info col-push">
+					<div class="section-title left">
+						<h2>Правила регистрации</h2>
+					</div>
+					<p class="con-item">Никнейм должен состоять из латиницы</p>
+                    <p class="con-item">Указывайте действительную Вашу почту</p>
+					<p class="con-item">Пароль не должен быть слишком похож на другую вашу личную информацию</p>
+					<p class="con-item">Ваш пароль должен содержать как минимум 8 символов</p>
+					<p class="con-item">Пароль не должен быть слишком простым и распространенным</p>
+                    <p class="con-item">Пароль не может состоять только из цифр</p>
+				</div>
+				<div class="col-md-6 col-pull">
+					<form action="" class="form-class" method="post">{% csrf_token %}
+						<div class="row">
+							<div class="col-sm-6">
+								<input type="text" id="id_username" placeholder="Ваш никнейм" required
+                                       name="{{ user_form.username.name }}">
+							</div>
+							<div class="col-sm-6">
+								<input type="email" id="id_email" placeholder="Ваша почта" required
+                                       name="{{ user_form.email.name }}">
+							</div>
+                            <div class="col-sm-6">
+								<input type="password" id="id_password" placeholder="Придумайте пароль" required
+                                       name="{{ user_form.password.name }}">
+							</div>
+							<div class="col-sm-6">
+								<input type="password" id="id_password" placeholder="Повторите пароль" required
+                                       name="{{ user_form.password2.name }}">
+							</div>
+							<div class="col-sm-12">
+								<button type="submit" value="OK" class="site-btn">Отправить</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock content %}

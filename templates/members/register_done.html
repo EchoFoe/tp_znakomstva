@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}Добро пожаловать, {{ user.username }}!{% endblock title %}
+
+{% block content %}
+    <div class="promotion-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    <h2>Добро пожаловать в нашу систему, {{ user.username }}!</h2>
+                    <p>Вам осталось авторизоваться в нашей системе и сможете найти вторую половинку</p>
+                </div>
+                <div class="col-md-3">
+                    <div class="promo-btn-area">
+                        <a href="{% url 'clients:login' %}" class="site-btn btn-2">Авторизоваться</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+{% endblock %}

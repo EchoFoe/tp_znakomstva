@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}Отлично, {{ user.client.first_name }}! Чекни почту теперь {% endblock title %}
+
+{% block content %}
+    <div class="promotion-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    <h2>Вы поставили лайк {{ favorite.first_name }}</h2>
+                    <p>Держи теперь адрес его (или её) почтового ящика {{ favorite.user.email }}</p>
+                    <p>Мы дополнительно отправили на твою почту {{ user.email }} оповещение</p>
+                </div>
+            </div>
+        </div>
+</div>
+{% endblock %}

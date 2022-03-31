@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="hero-section">
+		<div class="hero-content">
+			<div class="hero-center">
+				<img src="{% static 'img/love.gif' %}" alt="">
+                <p><span>Найди вторую половинку здесь и сейчас!</span></p>
+			</div>
+		</div>
+		<div id="hero-slider" class="owl-carousel">
+			<div class="item hero-item" data-bg="{% static 'img/01.jpg' %}"></div>
+			<div class="item hero-item" data-bg="{% static 'img/02.jpg' %}"></div>
+		</div>
+	</div>
+{% endblock content %}

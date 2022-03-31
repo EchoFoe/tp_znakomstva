@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load watermark %}
+{% block title %}Изменение учетной записи {{ user.username }} {% endblock title %}
+
+{% block content %}
+    <div class="contact-section spad fix">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-5 col-md-offset-1 contact-info col-push">
+					<div class="section-title left">
+						<h2>Ваши данные о себе:</h2>
+					</div>
+                    <p class="con-item">Дата регистрации: {{ user.client.created }}</p>
+					<p class="con-item">Никнейм: {{ user.username }}</p>
+                    <p class="con-item">Почта: {{ user.email }}</p>
+					<p class="con-item">Ваше имя:
+                        {% if user.client.first_name %} {{ user.client.first_name }}
+                            {% else %} не указано
+                        {% endif %}</p>
+					<p class="con-item">Ваша фамилия:
+                        {% if user.client.last_name %} {{ user.client.last_name }}
+                            {% else %} не указано
+                        {% endif %}</p>
+                    <p class="con-item">Ваш пол:
+                        {% if user.client.gender %} {{ user.client.gender }}
+                            {% else %} пол не указан
+                        {% endif %}</p>
+					<p class="con-item">Ваша фотография:
+                        {% if user.client.photo %} <img src="{{ user.client.photo.url|watermark:"watermarka,position=br,scale=0.3" }}">
+                            {% else %} нет фотографии (советуем загрузить)
+                        {% endif %}</p>
+				</div>
+				<div class="col-md-6 col-pull">
+					<form action="." class="form-class" enctype="multipart/form-data" method="post">{% csrf_token %}
+						<div class="row">
+							<div class="col-sm-6">
+								<input type="text" id="id_email" placeholder="Ваше имя" required
+                                       value="{{ user.client.first_name }}"
+                                       name="{{ client_form.first_name.name }}">
+							</div>
+                            <div class="col-sm-6">
+								<input type="text" id="id_password" placeholder="Ваша фамилия" required
+                                       value="{{ user.client.last_name }}"
+                                       name="{{ client_form.last_name.name }}">
+							</div>
+							<div class="col-sm-12">
+                                {{ client_form.photo }}
+							</div>
+                            <div class="col-sm-6">
+                                <label for="gender">Ваш пол </label>
+                                {{ client_form.gender }}
+							</div>
+							<div class="col-sm-12">
+								<button type="submit" value="OK" class="site-btn">Отправить</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock content %}
